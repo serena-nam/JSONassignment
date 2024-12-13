@@ -9,7 +9,7 @@ let jsonDatabase = [
     	"rating" : "4.8",
     	"genre" : "dark comedy, romance",
     	"overview" : "This series tells the story of a man named Hae-jo, a man who was the product of an incorrect artificial insemination, as he forces Jae-mi, the world's most unlucky woman, to accompany him on his last journey in life after learning he is terminally ill.",
-    	"review" : "read review of Mr. Plankton",
+    	"review" : "I loved the cinematography of this drama and the use of dramatic irony. Although this was such a bizarre plot, this show exceeded my expectations by keeping me immersed and growing love for the main character who seems almost villanious in the beginning.",
     	"color" : "#3e63b0"
 	},
 	{
@@ -18,7 +18,7 @@ let jsonDatabase = [
     	"rating" : "4.8",
     	"genre" : "fantasy, romance",
     	"overview" : "Right after Ryoo Seon-jae, a top star ends his life, Im Sol, his top fan somehow ends up at a time when they were in high school and tries to protect him. A fantasy romance unfolds where people who missed each other in time finally meet.",
-    	"review" : "read review of Lovely Runner",
+    	"review" : "This was a very cute show and the perspectives of each character were slowly unraveled, making the story more complete. ",
     	"color" : "#26a8d4"
 	},
 	{
@@ -27,7 +27,7 @@ let jsonDatabase = [
     	"rating" : "4.5",
     	"genre" : "fantasy, romance",
     	"overview" : "The Atypical Family tells the story of Bok Gwi-ju and his family. All members of the family except his father have inherited particular superpowers and they come from a long line of similarly blessed ancestors. Gwi-ju's power is to travel back in time to events he experienced.",
-    	"review" : "read review of Atypical Family",
+    	"review" : "This show was a very interesting concept but I didn't feel much chemistry between the main cast and although the story was engaging at first, it seemed to drag on towards the middle.",
     	"color" : "#939c72"
 	},
 
@@ -61,44 +61,19 @@ function createJsonElement(incomingJSON) {
   	newContentRating.innerText = incomingJSON['rating'];
   	newContentElement.appendChild(newContentRating);
 
+    let newContentOverview = document.createElement("P");
+    newContentOverview.classList.add('contentText');
+    newContentOverview.innerText = incomingJSON['overview'];
+    newContentElement.appendChild(newContentOverview);
+
   	let newContentReview = document.createElement("P");
   	newContentReview.classList.add('contentText');
   	newContentReview.innerText = incomingJSON['review'];
   	newContentElement.appendChild(newContentReview);
 
-  	let newContentOverview = document.createElement("P");
-  	newContentOverview.classList.add('contentText');
-  	newContentOverview.innerText = incomingJSON['overview'];
-  	newContentElement.appendChild(newContentOverview);
+  	
 
   /// Add the item to the page
   	contentGridElement.appendChild(newContentElement);
 
 }
-
-AOS.init();
-
-// You can also pass an optional settings object
-// below listed default settings
-AOS.init({
-  // Global settings:
-  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-  initClassName: 'aos-init', // class applied after initialization
-  animatedClassName: 'aos-animate', // class applied on animation
-  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-  
-
-  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-  offset: 120, // offset (in px) from the original trigger point
-  delay: 0, // values from 0 to 3000, with step 50ms
-  duration: 400, // values from 0 to 3000, with step 50ms
-  easing: 'ease', // default easing for AOS animations
-  once: false, // whether animation should happen only once - while scrolling down
-  mirror: false, // whether elements should animate out while scrolling past them
-  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-});
